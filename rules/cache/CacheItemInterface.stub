@@ -1,0 +1,40 @@
+<?php
+
+namespace Psr\Cache;
+
+use DateInterval;
+use DateTimeInterface;
+
+/**
+ * @template T
+ */
+interface CacheItemInterface
+{
+    public function getKey(): string;
+
+    /**
+     * @return T | null
+     */
+    public function get();
+
+    public function isHit(): bool;
+
+    /**
+     * @param T $value
+     *
+     * @return static
+     */
+    public function set($value): self;
+
+    /**
+     * @return static
+     */
+    public function expiresAt(?DateTimeInterface $expiration): self;
+
+    /**
+     * @param int|DateInterval|null $time
+     *
+     * @return static
+     */
+    public function expiresAfter($time): self;
+}

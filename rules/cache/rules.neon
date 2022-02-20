@@ -1,0 +1,4 @@
+parameters:
+	stubFiles:
+		- CacheItemInterface.stub
+		- CacheItemPoolInterface.stub

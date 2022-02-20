@@ -1,0 +1,39 @@
+{
+    "name": "kcs/psr-phpstan-rules",
+    "description": "Rules and stubs of PSR interfaces for PHPStan",
+    "type": "phpstan-extension",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "psr/cache": "*"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12 || ^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kcs\\PsrPhpstan\\": "lib/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alessandro Chitolina",
+            "email": "alekitto@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+
+        "phpstan": {
+            "includes": [
+                "rules/cache/rules.neon"
+            ]
+        }
+    }
+}

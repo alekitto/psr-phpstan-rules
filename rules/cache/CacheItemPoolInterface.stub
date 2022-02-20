@@ -1,0 +1,56 @@
+<?php
+
+namespace Psr\Cache;
+
+/**
+ * @template T
+ */
+interface CacheItemPoolInterface
+{
+    /**
+     * @throws InvalidArgumentException
+     *
+     * @return CacheItemInterface<T>
+     */
+    public function getItem(string $key): CacheItemInterface;
+
+    /**
+     * @param string[] $keys
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return iterable<CacheItemInterface<T>>
+     */
+    public function getItems(array $keys = []): iterable;
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function hasItem(string $key): bool;
+
+    public function clear(): bool;
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function deleteItem(string $key): bool;
+
+    /**
+     * @param string[] $keys
+     *
+     * @throws InvalidArgumentException
+     */
+    public function deleteItems(array $keys): bool;
+
+    /**
+     * @param CacheItemInterface<T> $item
+     */
+    public function save(CacheItemInterface $item): bool;
+
+    /**
+     * @param CacheItemInterface<T> $item
+     */
+    public function saveDeferred(CacheItemInterface $item): bool;
+
+    public function commit(): bool;
+}
