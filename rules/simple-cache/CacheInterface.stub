@@ -1,0 +1,67 @@
+<?php
+
+namespace Psr\SimpleCache;
+
+use DateInterval;
+
+/**
+ * @template T
+ */
+interface CacheInterface
+{
+    /**
+     * @param T|null $default
+     *
+     * @return T|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public function get(string $key, $default = null);
+
+    /**
+     * @param T                     $value
+     * @param null|int|DateInterval $ttl
+     *
+     * @throws InvalidArgumentException
+     */
+    public function set(string $key, $value, $ttl = null): bool;
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function delete(string $key): bool;
+
+    public function clear(): bool;
+
+    /**
+     * @param iterable<string> $keys
+     * @param T|null           $default
+     *
+     * @return iterable<string, T|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public function getMultiple(iterable $keys, $default = null): iterable;
+
+    /**
+     * Persists a set of key => value pairs in the cache, with an optional TTL.
+     *
+     * @param iterable<T>           $values
+     * @param null|int|DateInterval $ttl
+     *
+     * @throws InvalidArgumentException
+     */
+    public function setMultiple(iterable $values, $ttl = null): bool;
+
+    /**
+     * @param iterable<string> $keys
+     *
+     * @throws InvalidArgumentException
+     */
+    public function deleteMultiple(iterable $keys): bool;
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function has(string $key): bool;
+}
