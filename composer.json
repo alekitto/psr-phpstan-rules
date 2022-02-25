@@ -28,10 +28,11 @@
         }
     },
     "extra": {
-
         "phpstan": {
             "includes": [
-                "rules/cache/rules.neon"
+                "rules/cache/rules.neon",
+                "rules/event-dispatcher/rules.neon",
+                "rules/simple-cache/rules.neon"
             ]
         }
     }
