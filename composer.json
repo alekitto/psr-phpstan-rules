@@ -6,6 +6,7 @@
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^0.12 || ^1.0",
         "psr/cache": "*",
+        "psr/event-dispatcher": "*",
         "psr/simple-cache": "*"
     },
     "license": "MIT",
