@@ -2,17 +2,30 @@
     "name": "kcs/psr-phpstan-rules",
     "description": "Rules and stubs of PSR interfaces for PHPStan",
     "type": "phpstan-extension",
+    "require": {
+        "php": ">=7.1"
+    },
     "require-dev": {
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "^0.12 || ^1.0",
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": "^9.4",
         "psr/cache": "*",
+        "psr/container": "*",
         "psr/event-dispatcher": "*",
         "psr/simple-cache": "*"
+    },
+    "conflict": {
+        "phpstan/phpstan": "<1.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Kcs\\PsrPhpstan\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kcs\\PsrPhpstan\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -31,6 +44,7 @@
         "phpstan": {
             "includes": [
                 "rules/cache/rules.neon",
+                "rules/container/rules.neon",
                 "rules/event-dispatcher/rules.neon",
                 "rules/simple-cache/rules.neon"
             ]

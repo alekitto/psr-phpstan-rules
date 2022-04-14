@@ -1,0 +1,5 @@
+services:
+	-
+		class: Kcs\PsrPhpstan\Container\ContainerDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension

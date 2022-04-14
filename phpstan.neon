@@ -1,4 +1,5 @@
 includes:
     - rules/cache/rules.neon
+    - rules/container/rules.neon
     - rules/event-dispatcher/rules.neon
     - rules/simple-cache/rules.neon
